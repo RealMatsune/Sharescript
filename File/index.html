@@ -3,30 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Script Share Hub</title>
-  <link rel="stylesheet" href="/style.css" />
+  <title>ScriptPasteClone</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Script Pastebin Clone</h1>
-    <div id="posts"></div>
+    <h1>📝 Script Paste Clone</h1>
+    <input type="text" id="search" placeholder="Search scripts...">
+    <div class="scripts" id="scripts-container"></div>
   </div>
-
-  <script>
-    fetch('/data/posts.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('posts');
-        data.forEach(post => {
-          container.innerHTML += `
-            <div class="card">
-              <h2>${post.title}</h2>
-              <p>${post.desc}</p>
-              <a href="${post.link}" class="btn">Xem script</a>
-            </div>
-          `;
-        });
-      });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
