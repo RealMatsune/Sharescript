@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Share Script - MATSUNE</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Script Share Hub</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>📜 MATSUNE - Share Script</h1>
-
-    <!-- Script Upload Form (manual for now) -->
-    <div class="upload-form">
-      <input type="text" id="script-name" placeholder="Tên Script">
-      <textarea id="script-code" placeholder="Dán Script ở đây..."></textarea>
-      <button onclick="addScript()">Đăng Script</button>
-    </div>
-
-    <hr>
-
-    <div id="scripts-container">
-      <!-- Scripts sẽ hiển thị ở đây -->
-    </div>
+    <h1>Script Pastebin Clone</h1>
+    <div id="posts"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    fetch('/data/posts.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('posts');
+        data.forEach(post => {
+          container.innerHTML += `
+            <div class="card">
+              <h2>${post.title}</h2>
+              <p>${post.desc}</p>
+              <a href="${post.link}" class="btn">Xem script</a>
+            </div>
+          `;
+        });
+      });
+  </script>
 </body>
 </html>
