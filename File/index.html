@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Share Script - MATSUNE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📜 MATSUNE - Share Script</h1>
+
+    <!-- Script Upload Form (manual for now) -->
+    <div class="upload-form">
+      <input type="text" id="script-name" placeholder="Tên Script">
+      <textarea id="script-code" placeholder="Dán Script ở đây..."></textarea>
+      <button onclick="addScript()">Đăng Script</button>
+    </div>
+
+    <hr>
+
+    <div id="scripts-container">
+      <!-- Scripts sẽ hiển thị ở đây -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
